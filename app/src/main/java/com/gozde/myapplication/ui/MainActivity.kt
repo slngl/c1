@@ -16,5 +16,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         viewModel=ViewModelProvider(this).get(CountiesViewModel::class.java)
         viewModel.getCountriesData()
+        viewModel.liveCountries.observe(this, {
+            println(it)
+        })
     }
 }
